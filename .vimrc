@@ -98,3 +98,6 @@ endif
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 Helptags 
+
+set softtabstop=4
+set shiftwidth=4
