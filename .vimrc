@@ -101,3 +101,6 @@ Helptags
 
 set softtabstop=4
 set shiftwidth=4
+
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk
