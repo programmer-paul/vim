@@ -99,8 +99,8 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 Helptags 
 
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=8
+set shiftwidth=8
 
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
