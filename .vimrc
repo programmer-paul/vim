@@ -99,6 +99,19 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 Helptags 
 
+" Settings for ctrlp to use ag instend of grep
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden 
+			\ --ignore .git 
+			\ --ignore .svn 
+			\ --ignore .hg 
+			\ --ignore .DS_Store 
+			\ --ignore "**/*.pyc" 
+			\ -g ""'
+let g:ctrlp_max_files=0
+
+" Settings for ag
+let g:ag_prg='ag -S  --nogroup  --nocolor --column --ignore sitedata --ignore image --ignore "tags" --ignore "*~"'
+
 set softtabstop=8
 set shiftwidth=8
 
@@ -106,7 +119,10 @@ let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 
 " For solarized color scheme
-syntax enable
-set background=dark
-colorscheme solarized
-set guifont=Monospace\ 14
+"syntax enable
+"set background=dark
+"colorscheme solarized
+"set guifont=Monospace\ 14
+
+" Use the color style as that in gvim by setting below
+set t_Co=16

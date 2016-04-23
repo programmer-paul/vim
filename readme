@@ -1,0 +1,10 @@
+------ For Ag, you have to install ag in your host firstly.
+	# OSX
+	brew install the_silver_searcher
+	# Archlinux
+	pacman -S the_silver_searcher
+	# Ubuntu
+	apt-get install silversearcher-ag
+
+------ At last, you have to create a soft link file .vimrc which links to .vim/.vimrc
+
