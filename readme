@@ -6,5 +6,9 @@
 	# Ubuntu
 	apt-get install silversearcher-ag
 
+------ cd .vim 
+       git submodule init 
+       git submodule update
+
 ------ At last, you have to create a soft link file .vimrc which links to .vim/.vimrc
 
