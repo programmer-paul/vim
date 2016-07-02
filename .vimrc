@@ -184,8 +184,8 @@ let g:ctrlp_max_files=0
 " Settings for ag
 let g:ag_prg='ag -S  --nogroup  --nocolor --column --ignore sitedata --ignore image --ignore "tags" --ignore "*~"'
 
-set softtabstop=8
-set shiftwidth=8
+set softtabstop=4
+set shiftwidth=4
 
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
