@@ -191,12 +191,13 @@ let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 
 " For solarized color scheme
-"syntax enable
-"set background=dark
-"colorscheme solarized
-"set guifont=Monospace\ 14
+" syntax enable
+" set background=dark
+" colorscheme solarized
+" set guifont=Monospace\ 14
 
 " Use the color style as that in gvim by setting below
 set t_Co=16
 
-
+set number
+set relativenumber
