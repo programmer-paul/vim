@@ -184,6 +184,7 @@ let g:ctrlp_max_files=0
 " Settings for ag
 let g:ag_prg='ag -S  --nogroup  --nocolor --column --ignore sitedata --ignore image --ignore "tags" --ignore "*~"'
 
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
@@ -201,3 +202,7 @@ set t_Co=16
 
 set number
 set relativenumber
+
+" Tab is showing as '>---', you can command 'set list/nolist' to enable or disable
+" showing the Tab
+set listchars=tab:>-
