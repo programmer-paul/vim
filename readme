@@ -1,14 +1,33 @@
------- For Ag, you have to install ag in your host firstly.
-	# OSX
-	brew install the_silver_searcher
-	# Archlinux
-	pacman -S the_silver_searcher
-	# Ubuntu
-	apt-get install silversearcher-ag
+------  INSTALLING GUIDE --------
 
------- cd .vim 
-       git submodule init 
-       git submodule update
+1. Install ag in your host
+# OSX
+brew install the_silver_searcher
+# Archlinux
+pacman -S the_silver_searcher
+# Ubuntu
+apt-get install silversearcher-ag
 
------- At last, you have to create a soft link file .vimrc which links to .vim/.vimrc
+2. Install submodules
+cd .vim 
+git submodule init 
+git submodule update
+
+3. Create a soft link file .vimrc 
+ln -s ~/.vim/.vimrc ~/.vimrc
+
+4. Then install all the plugins using Vundle
+vim +PluginInstall +qall
+
+5. Install clang-format
+sudo apt-get install clang-format 
+
+NOTE: If the name of clang-format you installed is not "clang-format" (for example, "clang-format-3.8"),
+      you must do the following:
+sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
+
+------ USAGE ------
+1. clang-format
+<leader> gf : Format the code as Google style
+<leader> wf : Format the code as WebKit style
 

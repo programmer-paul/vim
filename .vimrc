@@ -18,6 +18,57 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+filetype off                  " required
+
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Chiel92/vim-autoformat'
+
+"Plugin 'Valloric/YouCompleteMe'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+"Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -206,3 +257,33 @@ set relativenumber
 " Tab is showing as '>---', you can command 'set list/nolist' to enable or disable
 " showing the Tab
 set listchars=tab:>-
+
+"clang-format for formating cpp code
+nnoremap <leader>gf :call FormatCodeN("Google")<cr>
+nnoremap <leader>wf :call FormatCodeN("WebKit")<cr>
+vnoremap <leader>gf :call FormatCodeV("Google")<CR>
+vnoremap <leader>wf :call FormatCodeV("WebKit")<cr>
+
+let g:autoformat_verbosemode = 0
+
+func FormatCodeV(style)
+	let firstline=line(".")
+	let lastline=line(".")
+	" Visual mode
+	if exists(a:firstline)
+		firstline = a:firstline
+		lastline = a:lastline
+	endif
+	let g:formatdef_clangformat = "'clang-format --lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=" . a:style . "'"
+	let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
+	exec formatcommand
+endfunc
+
+func FormatCodeN(style)
+	let firstline=line("0")
+	let lastline=line("$")
+
+	let g:formatdef_clangformat = "'clang-format --lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=" . a:style . "'"
+	let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
+	exec formatcommand
+endfunc
