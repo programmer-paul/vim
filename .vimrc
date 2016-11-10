@@ -144,93 +144,105 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+                \ | wincmd p | diffthis
 endif
 
-set tabline=%!MyTabLine()  " custom tab pages line  
-function MyTabLine()  
-    let s = '' " complete tabline goes here  
-    " loop through each tab page  
-    for t in range(tabpagenr('$'))  
-        " set highlight  
-        if t + 1 == tabpagenr()  
-            let s .= '%#TabLineSel#'  
-        else  
-            let s .= '%#TabLine#'  
-        endif  
-        " set the tab page number (for mouse clicks)  
-        let s .= '%' . (t + 1) . 'T'  
-        let s .= ' '  
-        " set page number string  
-        let s .= t + 1 . ' '  
-        " get buffer names and statuses  
-        let n = ''      "temp string for buffer names while we loop and check buftype  
-        let m = 0       " &modified counter  
-        let bc = len(tabpagebuflist(t + 1))     "counter to avoid last ' '  
-        " loop through each buffer in a tab  
-        for b in tabpagebuflist(t + 1)  
-            " buffer types: quickfix gets a [Q], help gets [H]{base fname}  
-            " others get 1dir/2dir/3dir/fname shortened to 1/2/3/fname  
-            if getbufvar( b, "&buftype" ) == 'help'  
-                let n .= '[H]' . fnamemodify( bufname(b), ':t:s/.txt$//' )  
-            elseif getbufvar( b, "&buftype" ) == 'quickfix'  
-                let n .= '[Q]'  
-            else  
-                let n .= pathshorten(bufname(b))  
-            endif  
-            " check and ++ tab's &modified count  
-            if getbufvar( b, "&modified" )  
-                let m += 1  
-            endif  
-            " no final ' ' added...formatting looks better done later  
-            if bc > 1  
-                let n .= ' '  
-            endif  
-            let bc -= 1  
-        endfor  
-        " add modified label [n+] where n pages in tab are modified  
-        if m > 0  
-            let s .= '[' . m . '+]'  
-        endif  
-        " select the highlighting for the buffer names  
-        " my default highlighting only underlines the active tab  
-        " buffer names.  
-        if t + 1 == tabpagenr()  
-            let s .= '%#TabLineSel#'  
-        else  
-            let s .= '%#TabLine#'  
-        endif  
-        " add buffer names  
-        if n == ''  
-            let s.= '[New]'  
-        else  
-            let s .= n  
-        endif  
-        " switch to no underlining and add final space to buffer list  
-        let s .= ' '  
-    endfor  
-    " after the last tab fill with TabLineFill and reset tab page nr  
-    let s .= '%#TabLineFill#%T'  
-    " right-align the label to close the current tab page  
-    if tabpagenr('$') > 1  
-        let s .= '%=%#TabLineFill#999Xclose'  
-    endif  
-    return s  
-endfunction  
+set tabline=%!MyTabLine()  " custom tab pages line
+function MyTabLine()
+    let s = '' " complete tabline goes here
+    " loop through each tab page
+    for t in range(tabpagenr('$'))
+        " set highlight
+        if t + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+        " set the tab page number (for mouse clicks)
+        let s .= '%' . (t + 1) . 'T'
+        let s .= ' '
+        " set page number string
+        let s .= t + 1 . ' '
+        " get buffer names and statuses
+        let n = ''      "temp string for buffer names while we loop and check buftype
+        let m = 0       " &modified counter
+        let bc = len(tabpagebuflist(t + 1))     "counter to avoid last ' '
+        " loop through each buffer in a tab
+        for b in tabpagebuflist(t + 1)
+            " buffer types: quickfix gets a [Q], help gets [H]{base fname}
+            " others get 1dir/2dir/3dir/fname shortened to 1/2/3/fname
+            if getbufvar( b, "&buftype" ) == 'help'
+                let n .= '[H]' . fnamemodify( bufname(b), ':t:s/.txt$//' )
+            elseif getbufvar( b, "&buftype" ) == 'quickfix'
+                let n .= '[Q]'
+            else
+                let n .= pathshorten(bufname(b))
+            endif
+            " check and ++ tab's &modified count
+            if getbufvar( b, "&modified" )
+                let m += 1
+            endif
+            " no final ' ' added...formatting looks better done later
+            if bc > 1
+                let n .= ' '
+            endif
+            let bc -= 1
+        endfor
+        " add modified label [n+] where n pages in tab are modified
+        if m > 0
+            let s .= '[' . m . '+]'
+        endif
+        " select the highlighting for the buffer names
+        " my default highlighting only underlines the active tab
+        " buffer names.
+        if t + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+        " add buffer names
+        if n == ''
+            let s.= '[New]'
+        else
+            let s .= n
+        endif
+        " switch to no underlining and add final space to buffer list
+        let s .= ' '
+    endfor
+    " after the last tab fill with TabLineFill and reset tab page nr
+    let s .= '%#TabLineFill#%T'
+    " right-align the label to close the current tab page
+    if tabpagenr('$') > 1
+        let s .= '%=%#TabLineFill#999Xclose'
+    endif
+    return s
+endfunction
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
-Helptags 
+Helptags
 
 " Settings for ctrlp to use ag instend of grep
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden 
-			\ --ignore .git 
-			\ --ignore .svn 
-			\ --ignore .hg 
-			\ --ignore .DS_Store 
-			\ --ignore "**/*.pyc" 
-			\ -g ""'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+                            \ --ignore .git
+                            \ --ignore .svn
+                            \ --ignore .hg
+                            \ --ignore .DS_Store
+                            \ --ignore "**/*.pyc"
+                            \ --ignore "**/*.swp"
+                            \ --ignore "**/*~"
+                            \ --ignore "**/*.xml"
+                            \ --ignore "**/*.yml"
+                            \ --ignore "**/*.jpg"
+                            \ --ignore "**/*.png"
+                            \ --ignore "**/*.gif"
+                            \ --ignore "**/*.doc"
+                            \ --ignore "**/*.html"
+                            \ --ignore "**/*.htm"
+                            \ -g ""'
 let g:ctrlp_max_files=0
+let g:ctrlp_match_window = 'order:ttb,min:1,max:10,results:60'
+let g:ctrlp_working_path_mode = 'w'
 
 " Settings for ag
 let g:ag_prg='ag -S  --nogroup  --nocolor --column --ignore sitedata --ignore image --ignore "tags" --ignore "*~"'
@@ -255,8 +267,8 @@ set number
 set relativenumber
 
 " Tab is showing as '>---', you can command 'set list/nolist' to enable or disable
-" showing the Tab
-set listchars=tab:>-
+" showing the Tab and trail blanks
+set listchars=tab:>-,trail:-
 
 "clang-format for formating cpp code
 nnoremap <leader>gf :call FormatCodeN("Google")<cr>
@@ -267,23 +279,23 @@ vnoremap <leader>wf :call FormatCodeV("WebKit")<cr>
 let g:autoformat_verbosemode = 0
 
 func FormatCodeV(style)
-	let firstline=line(".")
-	let lastline=line(".")
-	" Visual mode
-	if exists(a:firstline)
-		firstline = a:firstline
-		lastline = a:lastline
-	endif
-	let g:formatdef_clangformat = "'clang-format --lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=" . a:style . "'"
-	let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
-	exec formatcommand
+  let firstline=line(".")
+  let lastline=line(".")
+  " Visual mode
+  if exists(a:firstline)
+    firstline = a:firstline
+    lastline = a:lastline
+  endif
+  let g:formatdef_clangformat = "'clang-format --lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=" . a:style . "'"
+  let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
+  exec formatcommand
 endfunc
 
 func FormatCodeN(style)
-	let firstline=line("0")
-	let lastline=line("$")
+  let firstline=line("0")
+  let lastline=line("$")
 
-	let g:formatdef_clangformat = "'clang-format --lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=" . a:style . "'"
-	let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
-	exec formatcommand
+  let g:formatdef_clangformat = "'clang-format --lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=" . a:style . "'"
+  let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
+  exec formatcommand
 endfunc
