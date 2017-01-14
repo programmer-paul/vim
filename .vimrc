@@ -30,6 +30,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'vim-syntastic/syntastic'
 
 "Plugin 'Valloric/YouCompleteMe'
 
@@ -230,8 +231,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
                             \ --ignore .DS_Store
                             \ --ignore "**/*.pyc"
                             \ --ignore "**/*.swp"
-                            \ --ignore "**/*~"
-                            \ --ignore "**/*.xml"
+                            \ --ignore "*~"
                             \ --ignore "**/*.yml"
                             \ --ignore "**/*.jpg"
                             \ --ignore "**/*.png"
