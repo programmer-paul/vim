@@ -299,3 +299,5 @@ func FormatCodeN(style)
   let formatcommand = ":" . firstline . "," . lastline . "Autoformat"
   exec formatcommand
 endfunc
+
+set cursorline
