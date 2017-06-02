@@ -32,7 +32,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'vim-syntastic/syntastic'
 
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'easymotion/vim-easymotion'
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -306,7 +309,7 @@ set cursorline
 let g:DoxygenToolkit_briefTag_funcName = "yes"
 
 " for C++ style, change the '@' to '\'
-"let g:DoxygenToolkit_commentType = "C++"
+let g:DoxygenToolkit_commentType = "C++"
 let g:DoxygenToolkit_briefTag_pre = "@brief   "
 let g:DoxygenToolkit_templateParamTag_pre = "@param "
 let g:DoxygenToolkit_paramTag_pre = "@param "
