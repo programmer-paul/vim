@@ -30,7 +30,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 
 Plugin 'Valloric/YouCompleteMe'
 
@@ -253,6 +253,7 @@ let g:ag_prg='ag -S  --nogroup  --nocolor --column --ignore sitedata --ignore im
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
@@ -324,3 +325,6 @@ let g:DoxygenToolkit_classTag = "@class "
 let g:DoxygenToolkit_authorName = "Paul.Hu <zhuqing.hzq@alibaba-inc.com>"
 let g:DoxygenToolkit_licenseTag = "Copyright (C) Alibaba-Inc."
 let g:doxygen_enhanced_color = 1
+
+" For easymotion
+map <leader> <Plug>(easymotion-prefix)
