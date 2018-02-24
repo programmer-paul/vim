@@ -30,7 +30,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Chiel92/vim-autoformat'
-"Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
 Plugin 'Valloric/YouCompleteMe'
 
@@ -328,3 +328,11 @@ let g:doxygen_enhanced_color = 1
 
 " For easymotion
 map <leader> <Plug>(easymotion-prefix)
+
+" For YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_error_symbol = 'x'
+let g:ycm_warning_symbol = '!'
+let g:syntastic_always_populate_loc_list = 1
+
+let g:ttimeoutlen = 100
