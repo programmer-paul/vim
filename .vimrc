@@ -333,6 +333,13 @@ map <leader> <Plug>(easymotion-prefix)
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_error_symbol = 'x'
 let g:ycm_warning_symbol = '!'
-let g:syntastic_always_populate_loc_list = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 
-let g:ttimeoutlen = 100
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_enable_highlighting = 0
+
+let g:ttimeoutlen = 0
+
+set guifont=Courier\ New\ 12
+
+inoremap jj <Esc>
