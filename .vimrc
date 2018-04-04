@@ -346,3 +346,5 @@ let g:ttimeoutlen = 0
 set guifont=Courier\ New\ 12
 
 inoremap jj <Esc>
+
+autocmd FileType c,cc,cpp,h,hpp,python,ruby,java,sh,html,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
