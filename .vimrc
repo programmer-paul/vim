@@ -330,10 +330,13 @@ let g:doxygen_enhanced_color = 1
 map <leader> <Plug>(easymotion-prefix)
 
 " For YouCompleteMe
-let g:ycm_confirm_extra_conf = 0
 let g:ycm_error_symbol = 'x'
 let g:ycm_warning_symbol = '!'
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_server_python_interpreter='/usr/bin/python'
+"let g:ycm_confirm_extra_conf = 0'~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_highlighting = 0

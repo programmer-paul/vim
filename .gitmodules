@@ -13,3 +13,6 @@
 [submodule "plugin/DoxygenToolkit.vim"]
 	path = plugin/DoxygenToolkit.vim
 	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/valloric/YouCompleteMe.git
