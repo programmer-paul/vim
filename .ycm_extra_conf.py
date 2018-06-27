@@ -27,6 +27,7 @@ flags = [
 '-Werror',
 '-fexceptions',
 '-DNDEBUG',
+'-DUSE_CLANG_COMPLETER'
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
@@ -42,6 +43,7 @@ flags = [
 'c++',
 '-isystem',
 '/usr/include',
+'-isystem',
 '/usr/include/c++/5',
 '-isystem',
 '/usr/local/include',
@@ -49,6 +51,8 @@ flags = [
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
+'-isystem',
+'/opt/ros/kinetic/include'
 ]
 
 

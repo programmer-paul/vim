@@ -31,3 +31,6 @@ sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
 <leader> gf : Format the code as Google style
 <leader> wf : Format the code as WebKit style
 
+6. Install YouCompleteMe with clang-completer
+~/.vim/bundle/YouCompleteMe/install.sh --clang-completer --system-libclang
+For details, please refer to http://howiefh.github.io/2015/05/22/vim-install-youcompleteme-plugin/
