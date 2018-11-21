@@ -52,7 +52,13 @@ flags = [
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 '-isystem',
-'/opt/ros/kinetic/include'
+'/opt/ros/kinetic/include',
+'-isystem',
+'./include',
+'-isystem',
+'./',
+'-isystem',
+'./examples',
 ]
 
 
