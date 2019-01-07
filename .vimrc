@@ -337,7 +337,7 @@ let g:ycm_server_python_interpreter='/usr/bin/python'
 "let g:ycm_confirm_extra_conf = 0'~/.vim/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
-
+" For syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_highlighting = 0
 
@@ -369,7 +369,7 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' }, 'c++': {'lef
 " " Enable trimming of trailing whitespace when uncommenting
  let g:NERDTrimTrailingWhitespace = 1
 "
-" " Enable NERDCommenterToggle to check all selected lines is commented or not 
+" " Enable NERDCommenterToggle to check all selected lines is commented or not
 " let g:NERDToggleCheckAllLines = 1
 
 set guifont=Courier\ New\ 12
@@ -377,3 +377,16 @@ set guifont=Courier\ New\ 12
 inoremap jj <Esc>
 
 autocmd FileType c,cc,cpp,h,hpp,python,ruby,java,sh,html,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" automatic write the buffer when you switch to next buffer
+set autowrite
+
+"""" NerdTree
+" Open NERDTree when entering vim
+" autocmd VimEnter * NERDTree
+
+" Using F2 to open and close NERDTree
+map <F2> :NERDTreeToggle<CR>
+
+" When open NERDTree, show Bookmarks automatically
+"let NERDTreeShowBookmarks=1
