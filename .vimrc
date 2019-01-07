@@ -381,12 +381,13 @@ autocmd FileType c,cc,cpp,h,hpp,python,ruby,java,sh,html,javascript autocmd BufW
 " automatic write the buffer when you switch to next buffer
 set autowrite
 
-"""" NerdTree
+" For NerdTree
 " Open NERDTree when entering vim
 " autocmd VimEnter * NERDTree
-
 " Using F2 to open and close NERDTree
 map <F2> :NERDTreeToggle<CR>
-
 " When open NERDTree, show Bookmarks automatically
 "let NERDTreeShowBookmarks=1
+
+" For Tagbar
+map <F3> :TagbarToggle<CR>
