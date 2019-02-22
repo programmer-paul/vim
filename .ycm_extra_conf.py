@@ -59,6 +59,8 @@ flags = [
 './',
 '-isystem',
 './examples',
+'-isystem',
+'/usr/include/eigen3',
 ]
 
 
